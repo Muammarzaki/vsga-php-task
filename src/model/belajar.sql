@@ -12,5 +12,10 @@ create table orders
     total_price   int
 );
 
+alter table orders
+    add column created_at datetime;
+alter table orders
+    modify column created_at varchar(50);
+
 
 desc orders

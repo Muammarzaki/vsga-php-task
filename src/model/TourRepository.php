@@ -23,10 +23,11 @@ class TourRepository
 
     function save($tour)
     {
-        $stmt = $this->conn->prepare("INSERT INTO orders (name,phone,entry_count,day_count,accommodation,transportasi,service_food,packet_price,total_price) VALUES (:name,:phone,:entry_count,:day_count,:accommodation,:transportasi,:service_food,:packet_price,:total_price)");
+        $stmt = $this->conn->prepare("INSERT INTO orders (name,phone,entry_count,day_count,accommodation,transportasi,service_food,packet_price,total_price,create_at) VALUES (:name,:phone,:entry_count,:day_count,:accommodation,:transportasi,:service_food,:packet_price,:total_price,:create_at)");
         $stmt->execute([
             'name' => $tour->name,
             'phone' => $tour->phone,
+            'create_at' => $tour->create_at,
             'entry_count' => $tour->entry_count,
             'day_count' => $tour->day_count,
             'accommodation' => $tour->accommodation,
